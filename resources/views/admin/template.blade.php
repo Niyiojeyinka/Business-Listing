@@ -14,16 +14,7 @@
     }
 </style>
 <body class="">
+@yield('screen')
 
-<header class="w3-container w3-padding-jumbo w3-teal">
-<span class="w3-xlarge">A Classic Business Directory Service</span>
-</header>
-<div>
- @yield('contents')
- </div>
-<footer class="w3-container w3-padding-jumbo w3-teal w3-center">
-
-&copy; 2020 All right Reserved.
-</footer>
- </body>
-  </html>
+</body>
+</html>

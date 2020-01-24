@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('public.home',['title'=>'A Classic Business Directory Service']);
+    return view('public.front',['title'=>'A Classic Business Directory Service']);
 });
-//Route::get('admin/login','')
+Route::get('/admin/login', 'AdminController@index');
+Route::post('/admin/login', 'AdminController@login');
+Route::get('/admin', function()
+{
+	echo "dashboard";
+});
 
 Auth::routes();
 
