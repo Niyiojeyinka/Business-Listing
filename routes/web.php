@@ -18,7 +18,7 @@ Route::get('/admin/login', 'AdminController@index');
 Route::post('/admin/login', 'AdminController@login');
 Route::get('/admin', function()
 {
-	echo "dashboard";
+	return view('admin.dashboard');
 });
 
 Auth::routes();
