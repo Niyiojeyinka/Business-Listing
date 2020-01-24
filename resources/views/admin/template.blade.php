@@ -8,7 +8,7 @@
   <meta name="description" content="A Classic Business Directory Service"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
   <link rel="stylesheet" href="{{asset('css/w3.css')}}">
-  <script src="https://use.fontawesome.com/16da2feddb.js"></script>
+  <!--<script src="https://use.fontawesome.com/16da2feddb.js"></script>-->
 <style>
     a {
         text-decoration: none;
