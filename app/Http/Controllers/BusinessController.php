@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Business extends Controller
+class BusinessController extends Controller
 {
 	$this->middleware('guest:admin')->except(['index','show']);
 

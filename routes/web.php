@@ -29,7 +29,7 @@ Route::get('admin/business/create', function()
 {
 	return view('admin.create_business');
 });
-Route::post('/admin/business/create', 'Business@create');
+Route::post('/admin/business/create', 'BusinessController@create');
 Route::get('admin/business/manage', function()
 {
 	return view('admin.manage_business');
@@ -41,7 +41,7 @@ Route::get('admin/category/create', function()
 {
 	return view('admin.create_category');
 });
-Route::post('/admin/category/create', 'Category@create');
+Route::post('/admin/category/create', 'CategoryController@create');
 Route::get('admin/category/manage', function()
 {
 	return view('admin.manage_category');
