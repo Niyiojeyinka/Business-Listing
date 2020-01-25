@@ -25,4 +25,10 @@ class CategoryController extends Controller
    ]);
     return back()->with("success","Category Created Successfully");
    }
+
+   public function status($action,$id)
+   {
+
+
+   }
 }

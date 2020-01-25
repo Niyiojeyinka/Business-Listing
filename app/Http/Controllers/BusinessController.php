@@ -84,4 +84,15 @@ class BusinessController extends Controller
    	return back()->with("success","Business deleted Successfully");
 
    }
+
+
+   public function status($action,$id)
+   {
+     
+    $status= $action=="activate"?1:0;
+    Business::find($id)->update(['status'=>$status]);
+
+        return back()->with('success','Business '.ucfirst($action).'d Successfully.');
+
+   }
 }

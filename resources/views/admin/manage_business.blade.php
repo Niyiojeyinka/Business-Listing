@@ -18,10 +18,10 @@
 
 	<a href="{{url('admin/business/delete/'.$business->id)}}">Delete</a>
 	@if($business->status == 1)
-	<a href="{{url('admin/business/deactivate/'.$business->id)}}">Deactivate</a>
+	<a href="{{url('admin/business/status/deactivate/'.$business->id)}}">Deactivate</a>
 	@else
 		
-		<a href="{{url('admin/business/activate/'.$business->id)}}">Activate</a>
+		<a href="{{url('admin/business/status/activate/'.$business->id)}}">Activate</a>
      @endif
 
 	<a href="{{url('admin/business/edit/'.$business->id)}}">Edit</a>

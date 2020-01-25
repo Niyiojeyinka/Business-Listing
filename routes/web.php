@@ -39,6 +39,7 @@ Route::get('admin/business/create', 'BusinessController@showCreate');
 Route::post('/admin/business/create', 'BusinessController@create');
 Route::get('admin/business/manage','BusinessController@manage' );
 Route::get('admin/business/delete/{id}','BusinessController@delete' );
+Route::get('admin/business/status/{action}/{id}','BusinessController@status' );
 
 
 /**Admin Category Routing**/
