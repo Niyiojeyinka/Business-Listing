@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('public.front',['title'=>'A Classic Business Directory Service']);
-});
 
+Route::get('/', 'HomeController@homepage')->name('homepage');
+Route::get('/business/{id}', 'BusinessController@view')->name('homepage');
 
 Route::get('/admin/login', 'AdminController@loginForm')->name('admin.login');
 Route::post('/admin/login', 'AdminController@login');
@@ -53,5 +52,9 @@ Route::get('admin/category/manage', function()
 {
 	return view('admin.manage_category');
 });
+Route::get('admin/category/manage','CategoryController@manage' );
+Route::get('admin/category/delete/{id}','CategoryController@delete' );
+
+
 
 });

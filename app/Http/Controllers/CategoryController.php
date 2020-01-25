@@ -26,9 +26,18 @@ class CategoryController extends Controller
     return back()->with("success","Category Created Successfully");
    }
 
-   public function status($action,$id)
+    public function manage()
    {
+   	
+    $data['categories'] =Category::all();
+   	return view('admin.manage_category')->with($data);
+   }
 
+      public function delete($id)
+   {
+   	
+  Category::find($id)->delete();
+   	return back()->with("success","Category deleted Successfully");
 
    }
 }
