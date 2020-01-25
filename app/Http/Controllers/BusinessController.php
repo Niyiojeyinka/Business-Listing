@@ -62,9 +62,26 @@ class BusinessController extends Controller
            ]);
   
 
-        return back()->with('success','You have successfully upload image.')->with('image',$imageName);
+        return back()->with('success','Business Created Successfully.')->with('image',$imageName);
 
 
+
+   }
+
+
+   public function manage()
+   {
+   	
+    $data['businesses'] =Business::all();
+
+   	return view('admin.manage_business')->with($data);
+   }
+
+      public function delete($id)
+   {
+   	
+   Business::find($id)->delete();
+   	return back()->with("success","Business deleted Successfully");
 
    }
 }

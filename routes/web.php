@@ -37,10 +37,8 @@ Route::middleware(['auth.admin'])->group(function () {
 /**Admin Business Routing**/
 Route::get('admin/business/create', 'BusinessController@showCreate');
 Route::post('/admin/business/create', 'BusinessController@create');
-Route::get('admin/business/manage', function()
-{
-	return view('admin.manage_business');
-});
+Route::get('admin/business/manage','BusinessController@manage' );
+Route::get('admin/business/delete/{id}','BusinessController@delete' );
 
 
 /**Admin Category Routing**/
