@@ -6,6 +6,23 @@
 
 <span class="w3-large"><strong>New Business</strong></span><br><br>
 
+
+
+@if($errors->any)
+
+@foreach($errors->all() as $error)
+
+<span class="w3-text-red">{{$error}}</span><br>
+
+@endforeach
+
+
+@endif
+@if(Session::has("success"))
+
+<span class="w3-text-green">{{session('success')}}</span><br>
+
+@endif
     	<form action="{{url('admin/business/create')}}" method="POST"  enctype="multipart/form-data">
 
 @csrf
