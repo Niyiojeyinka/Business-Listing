@@ -16,11 +16,21 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin/login', 'AdminController@index');
+Route::get('/admin/login', 'AdminController@loginForm')->name('admin.login');
 Route::post('/admin/login', 'AdminController@login');
+Route::get('/admin/logout', 'AdminController@logout');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/admin', function()
+
+
+
+Route::middleware(['auth.admin'])->group(function () {
+   
+   Route::get('/admin', function()
 {
 	return view('admin.dashboard');
 });
@@ -47,11 +57,4 @@ Route::get('admin/category/manage', function()
 	return view('admin.manage_category');
 });
 
-
-
-
-
-Route::post('/admin/login', 'AdminController@login');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+});
