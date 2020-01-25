@@ -40,7 +40,8 @@ Route::post('/admin/business/create', 'BusinessController@create');
 Route::get('admin/business/manage','BusinessController@manage' );
 Route::get('admin/business/delete/{id}','BusinessController@delete' );
 Route::get('admin/business/status/{action}/{id}','BusinessController@status' );
-
+Route::get('admin/business/edit/{id}','BusinessController@showEdit' );
+Route::post('admin/business/edit/{id}','BusinessController@update' );
 
 /**Admin Category Routing**/
 Route::get('admin/category/create', function()

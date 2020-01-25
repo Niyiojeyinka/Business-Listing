@@ -69,6 +69,74 @@ class BusinessController extends Controller
    }
 
 
+  public function showEdit($id)
+  {
+
+    $data['business'] = Business::find($id)->get()->toArray();
+    $data['id']=$id;
+  	$data['categories'] = Category::all();
+  	return view('admin.edit_business')->with($data);
+  }
+
+   public function update(Request $request,$id)
+   {
+     
+$business = Business::find($id)->get()->toArray()[0];
+    
+
+     $errorMessages =[
+     	"name.required"=>"Business Name is required",
+     	"name.min"=>"Minimum Number of Character is 4",
+     	"website.required"=>"Business website is required",
+		"website.url"=>"Please Provide a valid URL",
+		"email.required"=>"Business Email is required",
+		"email.email"=>"Please Provide a valid Email",
+		"feature_image.max"=>"Image must be less or equal to 2MB in size "
+     ];
+     $rules=[
+      "name"=>"required|min:4",
+      "website"=>"required|url",
+       "email"=>"required|email",
+      "description"=>"required",
+      "phone"=>"required|numeric|min:10",
+      "feature_image"=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      "address"=>"required",
+      "categories"=>"required"
+      ];
+     $data= $request->validate($rules,$errorMessages);
+
+$imageName=NULL;
+
+if (request()->hasfile('feature_image')) {
+	
+  $imageName = time().'.'.request()->feature_image->getClientOriginalExtension();
+   request()->feature_image->move(public_path('images'), $imageName);
+}
+$imagesArray = json_decode($business['feature_image']);
+
+if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
+	array_push($imagesArray, $imageName);
+	}
+//made a provision for multiple image by saving images as json
+           Business::find($id)->update([
+            "name"=>$data['name'],
+            "website"=>$data['website'],
+            "description"=>$data['description'],
+            "feature_image"=>json_encode($imagesArray),
+            "status"=>1,
+            "email"=>$data['email'],
+             "phone"=>$data['phone'],
+            "address"=>$data['address'],
+            "category_id"=>json_encode($data['categories'])
+           ]);
+  
+
+        return back()->with('success','Business Updated Successfully.');
+
+
+
+   }
+
    public function manage()
    {
    	
