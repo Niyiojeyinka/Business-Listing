@@ -17,9 +17,11 @@ class CreateBusinessesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description');
-            $table->unsignedInteger('category_id');
+            $table->json('category_id');
             $table->string('email');
+            $table->json('feature_image');
             $table->string('address');
+            $table->string('website');
             $table->string('phone');
             $table->integer('status');
             $table->timestamps();

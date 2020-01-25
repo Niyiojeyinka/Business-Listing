@@ -7,6 +7,10 @@ CBDS Admin Dashboad
 </div>
 <div class="w3-row">
   <div class="w3-col l3 s12 m3 w3-padding-large" style="background-color:rgb(47, 47, 47);height: 100vh;">
+    <a class="w3-bar-item w3-text-white w3-medium w3-margin w3-padding w3-block" href="{{url('/')}}">  <i   class="fa fa-home
+w3-large w3-text-white w3-center w3-margin-right"></i>Home</a>
+<br>
+<br>
 <a class="w3-bar-item w3-text-white w3-medium w3-margin w3-padding w3-block" href="{{url('admin')}}">  <i   class="fa fa-area-chart
 w3-large w3-text-white w3-center w3-margin-right"></i>Platform Insight</a>
 <br>

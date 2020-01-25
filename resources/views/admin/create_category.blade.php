@@ -6,8 +6,21 @@
 
 <span class="w3-large"><strong>New Category</strong></span><br><br>
 
-    	<form action="{{url('admin/business/create')}}" method="POST">
+@if($errors->any())
 
+@foreach($errors->all() as $error)
+
+<span class="w3-text-red">{{$error}}</span><br>
+
+@endforeach
+@endif
+@if(Session::has("success"))
+
+<span class="w3-text-green">{{session('success')}}</span><br>
+
+@endif
+    	<form action="{{url('admin/category/create')}}" method="POST">
+@csrf
 <div class="w3-margin">
     		<label for="name" class="w3-label">Category:</label><br>
 <input type="text" name="name" class="w3-padding-large" placeholder="Category Label" />
