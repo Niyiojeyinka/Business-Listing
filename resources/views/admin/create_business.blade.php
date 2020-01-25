@@ -29,7 +29,7 @@
 
 	@foreach($categories as $category)
 
-<span class="w3-margin"><input type="checkbox" class="w3-check" name="categories[]" value="{{$category->id}}"/> {{$category->name}} </span>
+<span class="w3-margin"><input type="checkbox" class="w3-check" name="categories[]" value="{{$category->id-quarter{{$category->name}} </span>
 
 	@endforeach
 	
@@ -38,13 +38,13 @@
 <br>
 <div class="w3-row">
 	
-<div class="w3-third">
+<div class="w3-quarter">
 	<label for="address" class="w3-label">Address:</label><br>
 	<input type="address" name="address" class="w3-padding">
 
 </div>
 	
-<div class="w3-third">
+<div class="w3-quarter">
 	<label for="phone" class="w3-label">Mobile Number:</label><br>
 
 	<input type="tel" name="phone" class="w3-padding">
@@ -52,10 +52,17 @@
 	
 </div>
 	
-<div class="w3-third">
+<div class="w3-quarter">
 	<label for="phone" class="w3-label">Website:</label><br>
 
 	<input type="url" name="website" class="w3-padding">
+
+	
+</div>
+<div class="w3-quarter">
+	<label for="email" class="w3-label">Email Address:</label><br>
+
+	<input type="url" name="email" class="w3-padding">
 
 	
 </div>

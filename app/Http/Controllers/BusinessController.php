@@ -27,11 +27,14 @@ class BusinessController extends Controller
      	"name.min"=>"Minimum Number of Character is 4",
      	"website.required"=>"Business website is required",
 		"website.url"=>"Please Provide a valid URL",
+		"email.required"=>"Business Email is required",
+		"email.email"=>"Please Provide a valid Email",
 		"feature_image.max"=>"Image must be less or equal to 2MB in size "
      ];
      $rules=[
       "name"=>"required|min:4",
       "website"=>"required|url",
+       "email"=>"required|email",
       "description"=>"required",
       "phone"=>"required|numeric|min:10",
       "feature_image"=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -50,8 +53,9 @@ class BusinessController extends Controller
             "name"=>$data['name'],
             "website"=>$data['website'],
             "description"=>$data['description'],
-            "feature_image"=>json_encode([$data['feature_image']]),
+            "feature_image"=>json_encode([$imageName]),
             "status"=>1,
+            "email"=>$data['email'],
              "phone"=>$data['phone'],
             "address"=>$data['address'],
             "category_id"=>json_encode($data['categories'])

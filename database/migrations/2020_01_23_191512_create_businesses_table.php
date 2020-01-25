@@ -20,6 +20,7 @@ class CreateBusinessesTable extends Migration
             $table->json('category_id');
             $table->json('feature_image');
             $table->string('address');
+            $table->string('email');
             $table->string('website');
             $table->string('phone');
             $table->integer('status');
