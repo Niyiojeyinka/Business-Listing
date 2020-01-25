@@ -18,7 +18,6 @@ class CreateBusinessesTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->json('category_id');
-            $table->string('email');
             $table->json('feature_image');
             $table->string('address');
             $table->string('website');

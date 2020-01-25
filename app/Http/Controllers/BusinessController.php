@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Business;
 class BusinessController extends Controller
 {
 	
@@ -41,8 +42,8 @@ class BusinessController extends Controller
 
 
 
-  $imageName = time().'.'.request()->image->getClientOriginalExtension();
-   request()->image->move(public_path('images'), $imageName);
+  $imageName = time().'.'.request()->feature_image->getClientOriginalExtension();
+   request()->feature_image->move(public_path('images'), $imageName);
 
 //made a provision for multiple image by saving images as json
            Business::create([
@@ -53,7 +54,6 @@ class BusinessController extends Controller
             "status"=>1,
              "phone"=>$data['phone'],
             "address"=>$data['address'],
-            "email"=>$data['email'],
             "category_id"=>json_encode($data['categories'])
            ]);
   
