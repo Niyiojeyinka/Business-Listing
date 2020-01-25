@@ -2,31 +2,10 @@
 @section('contents')
 <div class="w3-padding w3-center w3-border">
 
-<form>
-	@csrf
-<input type="search" name="keywords" class="w3-padding-large"/>
-
-<input type="submit" name="submit" class="w3-btn w3-teal" value="search...">
-
-</form>
-
-<span class="w3-large">Categories</span>
-<br>
-<div class="w3-padding-large w3-card w3-center w3-margin">
-
-
-@foreach($categories as $category)
-
-
-	<a href="{{url('category/'.$category->id)}}" class=""> {{$category->name}}</a>
-	
-@endforeach
-
-</div>
 <div>
-	<span class="w3-large w3-serif">Businesses</span><br>
+	<span class="w3-large w3-serif">Search Result</span><br>
 
-	@foreach($businesses as $business)
+	@foreach($result as $business)
 
 <a href="{{url('/business/'.$business['id'])}}" class="">
 <div class="w3-row w3-card-4 w3-margin">

@@ -37,4 +37,17 @@ class HomeController extends Controller
          return view('public.front')->with($data);
     }
     
+
+
+    public function search(Request $request)
+    {
+      
+      $data['result'] = Business::where([ 
+        ['name', 'LIKE', '%' . $request->keywords . '%'],
+        ['description', 'LIKE', '%' . $request->keywords . '%'],
+    ])->get();
+
+    return view('public.search_result')->with($data);   
+
+    }
 }
