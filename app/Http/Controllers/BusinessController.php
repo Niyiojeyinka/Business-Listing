@@ -49,18 +49,22 @@ class BusinessController extends Controller
    request()->feature_image->move(public_path('images'), $imageName);
 
 //made a provision for multiple image by saving images as json
-           Business::create([
-            "name"=>$data['name'],
-            "website"=>$data['website'],
-            "description"=>$data['description'],
-            "feature_image"=>json_encode([$imageName]),
-            "status"=>1,
-            "email"=>$data['email'],
-             "phone"=>$data['phone'],
-            "address"=>$data['address'],
-            "category_id"=>json_encode($data['categories'])
-           ]);
-  
+
+   $business = new Business();
+   $business->name = $data['name'];
+   $business->website = $data['website'];
+   $business->description= $data['description'];
+   $business->feature_image=json_encode([$imageName]);
+   $business->status=1;
+   $business->email=$data['email'];
+   $business->phone=$data['phone'];
+   $business->address=$data['address'];
+   $business->save();
+
+   $category = Category::find($data['categories']);
+   //dd($category);
+   $business->categories()->attach($category);
+
 
         return back()->with('success','Business Created Successfully.')->with('image',$imageName);
 
@@ -72,9 +76,11 @@ class BusinessController extends Controller
   public function showEdit($id)
   {
 
-    $data['business'] = Business::find($id)->get()->toArray();
+    $data['business'] = Business::find($id)->with("categories")->get()->toArray()[0];   
     $data['id']=$id;
   	$data['categories'] = Category::all();
+//dd( $data['business'][0]);
+
   	return view('admin.edit_business')->with($data);
   }
 
@@ -118,18 +124,22 @@ if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
 	array_push($imagesArray, $imageName);
 	}
 //made a provision for multiple image by saving images as json
-           Business::find($id)->update([
-            "name"=>$data['name'],
-            "website"=>$data['website'],
-            "description"=>$data['description'],
-            "feature_image"=>json_encode($imagesArray),
-            "status"=>1,
-            "email"=>$data['email'],
-             "phone"=>$data['phone'],
-            "address"=>$data['address'],
-            "category_id"=>json_encode($data['categories'])
-           ]);
-  
+         
+   $business = new Business();
+   $business->id = $id;
+   $business->name = $data['name'];
+   $business->website = $data['website'];
+   $business->description= $data['description'];
+   $business->feature_image=json_encode($imagesArray);
+   $business->status=1;
+   $business->email=$data['email'];
+   $business->phone=$data['phone'];
+   $business->address=$data['address'];
+   $business->save();
+
+   $category = Category::find($data['categories']);
+   $business->categories()->sync($category);
+
 
         return back()->with('success','Business Updated Successfully.');
 

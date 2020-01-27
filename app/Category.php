@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Business;
 
 class Category extends Model
 {
@@ -11,6 +12,6 @@ class Category extends Model
   
     public function businesses()
     {
-        return $this->belongsToMany(App\Business::class);
+        return $this->belongsToMany(Business::class);
     }
 }

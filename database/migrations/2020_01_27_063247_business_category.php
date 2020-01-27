@@ -13,10 +13,20 @@ class BusinessCategory extends Migration
      */
     public function up()
     {
-        Schema::create('Business_category', function(Blueprint $table)
+       /* Schema::create('business_category', function(Blueprint $table)
   {
       $table->integer('category_id')->unsigned();
       $table->integer('business_id')->unsigned();
+      $table->timestamps();
+  });*/
+
+  Schema::create('business_category', function(Blueprint $table)
+  {
+      $table->integer('category_id')->unsigned()->nullable()->foreign('category_id')->references('id')
+            ->on('categories')->onDelete('cascade');
+      $table->integer('business_id')->unsigned()->nullable()->references('id')
+            ->on('todolists')->onDelete('cascade');
+
       $table->timestamps();
   });
 
