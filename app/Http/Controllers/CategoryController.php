@@ -25,7 +25,19 @@ class CategoryController extends Controller
    ]);
     return back()->with("success","Category Created Successfully");
    }
+     public function view($id)
+	{
 
+		
+ $data['business'] = Category::where('id',$id)->with("businesses")->get()->toArray()[0]['businesses'];
+       $data['categories']=Category::all();
+
+ //dd( $data['business']);
+    	return view('public.category_view')->with($data);
+
+
+
+	}
     public function manage()
    {
    	
