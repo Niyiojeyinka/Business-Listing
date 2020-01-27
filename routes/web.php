@@ -13,7 +13,8 @@
 
 
 Route::get('/', 'HomeController@homepage')->name('homepage');
-Route::get('/business/{id}', 'BusinessController@view')->name('homepage');
+Route::get('/business/{id}', 'BusinessController@view')->name('business.page');
+Route::get('/category/{id}', 'CategoryController@view');
 
 Route::get('/admin/login', 'AdminController@loginForm')->name('admin.login');
 Route::post('/admin/login', 'AdminController@login');

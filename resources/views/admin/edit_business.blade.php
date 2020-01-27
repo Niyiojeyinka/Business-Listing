@@ -29,7 +29,7 @@
 
 <div class="w3-margin">
     		<label for="name" class="w3-label">Business Name:</label><br>
-<input type="text" name="name" class="w3-padding-large" placeholder="Business Name" value="{{$business[0]['name']}}
+<input type="text" name="name" class="w3-padding-large" placeholder="Business Name" value="{{$business['name']}}
 " />
 <br>
 </div>
@@ -37,7 +37,7 @@
     	<div class="w3-margin">
 	<label for="description" class="w3-label">Business Details:</label>
 	<br>
-    		<textarea id="contents" name="description" cols="35" rows="15">{{$business[0]['description']}}</textarea>
+    		<textarea id="contents" name="description" cols="35" rows="15">{{$business['description']}}</textarea>
 </div>
 <br>
 
@@ -47,9 +47,9 @@
 
 	@foreach($categories as $category)
 <?php $check ="";?>
-      @foreach( json_decode($business[0]['category_id']) as $id)
+      @foreach( $business['categories'] as $bcategory)
 
-        @if ($id == $category->id)
+        @if ($bcategory['id'] == $category->id)
           <?php $check ="checked";?>
         @endif
         @endforeach
@@ -65,14 +65,14 @@
 	
 <div class="w3-quarter">
 	<label for="address" class="w3-label">Address:</label><br>
-	<input type="address" name="address" class="w3-padding" value="{{$business[0]['address']}}">
+	<input type="address" name="address" class="w3-padding" value="{{$business['address']}}">
 
 </div>
 	
 <div class="w3-quarter">
 	<label for="phone" class="w3-label">Mobile Number:</label><br>
 
-	<input type="tel" name="phone" class="w3-padding" value="{{$business[0]['phone']}}">
+	<input type="tel" name="phone" class="w3-padding" value="{{$business['phone']}}">
 
 	
 </div>
@@ -80,14 +80,14 @@
 <div class="w3-quarter">
 	<label for="website" class="w3-label">Website:</label><br>
 
-	<input type="url" name="website" class="w3-padding" value="{{$business[0]['website']}}">
+	<input type="url" name="website" class="w3-padding" value="{{$business['website']}}">
 
 	
 </div>
 <div class="w3-quarter">
 	<label for="email" class="w3-label">Email Address:</label><br>
 
-	<input type="email" name="email" class="w3-padding" value="{{$business[0]['email']}}">
+	<input type="email" name="email" class="w3-padding" value="{{$business['email']}}">
 
 	
 </div>
@@ -116,7 +116,7 @@
     height: ($(window).height() - 300),
     callbacks: {
         onImageUpload: function(image) {
-            uploadImage(image[0]);
+            uploadImage(image);
         }
     }
 });
@@ -133,7 +133,7 @@ function uploadImage(image) {
         type: "post",
         success: function(url) {
             var image = $('<img>').attr('src', /*'http://' + */url);
-            $('#contents').summernote("insertNode", image[0]);
+            $('#contents').summernote("insertNode", image);
         },
         error: function(data) {
             console.log(data);

@@ -19,6 +19,11 @@
 	</div>
 	<div class="w3-half">
 		{{$business['address']}}
+		<br>
+		<span class="w3-large">Categories</span><br>
+		@foreach($business['categories'] as $category )
+		<span class="w3-text-teal w3-margin w3-tag">{{$category['name']}}</span>
+		@endforeach
 
 	</div>
 </div>

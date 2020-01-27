@@ -17,7 +17,6 @@ class CreateBusinessesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description');
-            $table->json('category_id');
             $table->json('feature_image');
             $table->string('address');
             $table->string('email');

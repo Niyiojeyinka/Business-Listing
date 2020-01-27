@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Category;
 class Business extends Model
 {
 
@@ -14,5 +14,11 @@ class Business extends Model
         'category_id' => 'array',
         'feature_image'=>'array'
     ];
+
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
    
 }
