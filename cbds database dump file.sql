@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2020 at 07:26 PM
+-- Generation Time: Jan 27, 2020 at 09:48 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -44,8 +44,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ola', 'ola@gmail.com', NULL, '$2y$10$961ZxfTNKouyWHemTlaBkugFs88xtpXEGdJMhYTjTcoflj9ve3iT.', NULL, '2020-01-25 10:31:20', '2020-01-25 10:31:20'),
-(2, 'admin', 'admin@gmail.com', NULL, '$2y$10$f1z9nPEcyhFYBXDqTG41zeTDJRHOgAjBOkoD6h.2dPHS/u1Toq.a.', NULL, '2020-01-25 17:25:45', '2020-01-25 17:25:45');
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$DtTR1JN6qH9cQZAMsPcXEOAM898k4jthWu0Qk4npWUlkgrJyl8ORu', NULL, '2020-01-27 06:32:24', '2020-01-27 06:32:24');
 
 -- --------------------------------------------------------
 
@@ -57,7 +56,6 @@ CREATE TABLE `businesses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_id` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`category_id`)),
   `feature_image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`feature_image`)),
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -72,21 +70,42 @@ CREATE TABLE `businesses` (
 -- Dumping data for table `businesses`
 --
 
-INSERT INTO `businesses` (`id`, `name`, `description`, `category_id`, `feature_image`, `address`, `email`, `website`, `phone`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Codiums', '<p>CodiumCodium<br></p>', '\"[\\\"1\\\",\\\"2\\\",\\\"3\\\"]\"', '\"[\\\"image.jpg\\\"]\"', 'ile-ife osun state nigeria', 'olaniyiojeyinka@gmail.com', 'https://thebestautomotivetraining.com', '09067506614', 1, '2020-01-25 10:39:14', '2020-01-25 12:07:38'),
-(3, 'Considine, Konopelski and Weber', 'Repellendus assumenda ut corrupti et nisi. Neque in aperiam eum quo. Quaerat repellendus amet minima quasi vel iusto earum.', '\"[2,2]\"', '\"[\\\"image.jpg\\\"]\"', '608 Bogan Mews\nEast Sabinahaven, AZ 55660', 'merle.hartmann@example.com', 'https://leffler.com/vel-ratione-odio-non-ea-et-voluptatem.html', '827.842.0858 x623', 1, '2020-01-25 17:16:57', '2020-01-25 17:16:57'),
-(4, 'Swift-Block', 'Aut dolorem laboriosam ratione quia est. Rerum vel qui omnis architecto voluptatem rerum. Et sed totam magnam quis perspiciatis voluptas. Exercitationem est voluptatem libero omnis quas atque a.', '\"[3,2]\"', '\"[\\\"image.jpg\\\"]\"', '9196 Caden Rapids Suite 937\nWest Martin, CA 79033-9829', 'fdonnelly@example.net', 'http://aufderhar.com/doloribus-doloribus-aliquid-odit-molestiae-maiores', '1-630-268-9702 x4623', 0, '2020-01-25 17:16:57', '2020-01-25 17:16:57'),
-(5, 'Kreiger, McDermott and Emard', 'Ea sunt est commodi nisi facilis. Ipsa ab ab delectus iste et. Minus voluptatem quia eum quo omnis dolores. Vel consequatur aspernatur repellendus accusamus saepe harum molestiae.', '\"[1,2]\"', '\"[\\\"image.jpg\\\"]\"', '982 McClure Fort\nHadleymouth, NC 84590', 'xkassulke@example.net', 'https://weissnat.org/ut-doloremque-cumque-sint.html', '816-305-4972 x194', 1, '2020-01-25 17:16:57', '2020-01-25 17:16:57'),
-(6, 'Pollich, Macejkovic and Cummings', 'Est fugit tempore deleniti ullam. Eligendi totam voluptatem quidem. Tempora quaerat voluptates laboriosam voluptates quaerat porro.', '\"[3,2]\"', '\"[\\\"image.jpg\\\"]\"', '6705 Edward Valleys Suite 425\nWest Barbaramouth, VA 07637', 'ooconnell@example.org', 'http://www.mclaughlin.com/optio-vel-voluptatibus-commodi-molestiae-quos-vel-unde-dicta.html', '1-837-287-2705', 1, '2020-01-25 17:16:57', '2020-01-25 17:16:57'),
-(7, 'Schuppe-Corkery', 'Dignissimos iure perferendis aliquam dolore quaerat. Eligendi architecto unde et distinctio a aut voluptas. Aut ut voluptas veniam amet.', '\"[2,2]\"', '\"[\\\"image.jpg\\\"]\"', '84357 Kadin Canyon Apt. 425\nSouth Shaniyamouth, ND 54132', 'lueilwitz.eduardo@example.net', 'http://www.prohaska.com/sunt-a-recusandae-tenetur', '(807) 302-6909 x26469', 1, '2020-01-25 17:16:57', '2020-01-25 17:16:57'),
-(8, 'Farrell Inc', 'Maxime nam et deserunt. Fugiat architecto quos quia qui. Reiciendis consequatur enim ut voluptatem adipisci. Aut ipsum distinctio saepe ut. Odio ad quisquam mollitia omnis facilis quis.', '\"[3,1]\"', '\"[\\\"image.jpg\\\"]\"', '1434 Isabel Dale Apt. 380\nEast Lauriannemouth, NM 01931', 'ofisher@example.org', 'https://zemlak.com/nihil-non-illo-officiis-soluta-quo-quia.html', '357-812-5612 x620', 1, '2020-01-25 17:16:58', '2020-01-25 17:16:58'),
-(9, 'Stoltenberg Inc', 'Adipisci quo cupiditate sint. Alias quasi excepturi eos dicta maxime explicabo magnam iusto. Aut veritatis quae tempore et sed alias ullam. Dolor et nulla earum non.', '\"[3,2]\"', '\"[\\\"image.jpg\\\"]\"', '608 Elliot Cliff\nEloisebury, ME 18058', 'romaguera.ladarius@example.com', 'https://www.gorczany.com/quia-unde-distinctio-harum-est', '(472) 261-3716', 1, '2020-01-25 17:16:58', '2020-01-25 17:16:58'),
-(10, 'Lehner PLC', 'Velit beatae qui quam hic consequuntur dolor. Nisi hic ipsa ut qui perferendis quod.', '\"[1,1]\"', '\"[\\\"image.jpg\\\"]\"', '397 Hilpert Trail Apt. 641\nBeahanfort, TX 81900', 'ywill@example.net', 'http://www.grant.net/quaerat-cupiditate-quidem-aperiam-est-nisi-quam-qui-quod', '+19658103854', 1, '2020-01-25 17:16:58', '2020-01-25 17:16:58'),
-(11, 'Daniel, Reilly and Bruen', 'Adipisci sed distinctio facere aut sed. Et doloribus quod reprehenderit exercitationem rerum dignissimos. Recusandae aliquam ipsum a aut. Est est sequi nam optio velit consequatur.', '\"[2,1]\"', '\"[\\\"image.jpg\\\"]\"', '3643 Bartell Cape Suite 510\nPort Raul, SD 57724-3961', 'chirthe@example.net', 'http://greenfelder.com/', '952.364.2132 x815', 0, '2020-01-25 17:16:58', '2020-01-25 17:16:58'),
-(12, 'Fritsch, Jaskolski and Dicki', 'Necessitatibus laboriosam voluptates aliquid quo. Voluptas tempora harum veniam qui fuga nisi. Et architecto suscipit et culpa ut inventore distinctio. Impedit laudantium odit exercitationem dolorem nisi.', '\"[1,2]\"', '\"[\\\"image.jpg\\\"]\"', '751 Douglas Port Apt. 328\nEarlfurt, KY 75005', 'cvon@example.net', 'http://wisozk.org/', '725-431-4482 x941', 1, '2020-01-25 17:16:58', '2020-01-25 17:16:58'),
-(13, 'Buckridge-Johnston', 'Qui consectetur iure et ex. Quam voluptate rem qui neque. Ut recusandae sit velit dolores dolore aperiam.', '\"[1,1]\"', '\"[\\\"image.jpg\\\"]\"', '299 Roob Inlet\nMelisaton, AZ 25407-2199', 'nia.sipes@example.org', 'http://hauck.org/accusamus-corporis-et-consequatur-voluptatem-ipsum-sequi-itaque', '1-391-988-5577 x8032', 0, '2020-01-25 17:21:29', '2020-01-25 17:21:29'),
-(14, 'Pfeffer-Haley', 'Distinctio ut officia alias vitae. Non vitae neque nostrum blanditiis totam sunt. Rerum et repellat esse. Magni voluptatem atque eos libero.', '\"[3,2]\"', '\"[\\\"image.jpg\\\"]\"', '34140 Kreiger Canyon Suite 818\nEast Mallie, RI 17907', 'zharvey@example.net', 'http://www.mraz.net/consectetur-porro-praesentium-et-consequatur-veniam-ut', '451-739-6308', 0, '2020-01-25 17:21:29', '2020-01-25 17:21:29'),
-(15, 'Hermiston, Orn and Kohler', 'Non repellat perferendis quia vel. Distinctio consequatur corrupti qui eaque omnis rerum non quos.', '\"[1,1]\"', '\"[\\\"image.jpg\\\"]\"', '71997 Kuphal Ville Suite 390\nSouth Dorisberg, TN 95683-9190', 'myron.casper@example.org', 'http://koelpin.com/pariatur-voluptates-modi-enim-numquam-porro-voluptatibus-reiciendis-eos', '894.230.6636', 0, '2020-01-25 17:21:29', '2020-01-25 17:21:29');
+INSERT INTO `businesses` (`id`, `name`, `description`, `feature_image`, `address`, `email`, `website`, `phone`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Codium', '<p>-&gt;references(\'id\')</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt;on(\'todolists\')-&gt;onDelete(\'cascade\')-&gt;references(\'id\')</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt;on(\'todolists\')-&gt;onDelete(\'cascade\')-&gt;references(\'id\')</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt;on(\'todolists\')-&gt;onDelete(\'cascade\')-&gt;references(\'id\')</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt;on(\'todolists\')-&gt;onDelete(\'cascade\')</p>', '\"[\\\"1580110449.jpg\\\"]\"', 'ile-ife osun state nigeria', 'olaniyiojeyinka@gmail.com', 'https://thebestautomotivetraining.com', '+2349067506614', 1, '2020-01-27 06:34:09', '2020-01-27 06:34:09'),
+(2, 'Pouros, Dibbert and Little', 'Dolor autem aut qui. Corrupti repellat placeat rerum minima. Ipsam dolore sint enim vel sit. Sint officia commodi rerum et laudantium voluptatem molestiae. Nobis atque enim occaecati et est dolorem aut.', '\"[\\\"image.jpg\\\"]\"', '2705 Gutkowski IsleLake Nellaview, NC 61553', 'chris29@example.net', 'http://dicki.biz/ea-labore-dolorem-cum-accusamus', '340-772-4172 x660', 1, '2020-01-27 07:40:01', '2020-01-27 07:47:13'),
+(3, 'Bahringer and Sons', 'Aliquid sit quas quia dolor. Accusantium hic et quae. Tempore quae ducimus facere consequatur omnis. Ipsum et voluptatibus et voluptas nihil.', '\"[\\\"image.jpg\\\"]\"', '6911 Lowell Expressway\nHerbertland, RI 93748', 'fritz87@example.net', 'http://hane.com/ratione-rerum-quam-earum-molestias-voluptatem-eaque.html', '336.971.4071', 1, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(4, 'Crona Inc', 'Rerum exercitationem enim aliquam qui aperiam officiis necessitatibus deserunt. Rerum animi quos et sunt. Vel laboriosam a aliquam natus.', '\"[\\\"image.jpg\\\"]\"', '5631 Frances Loaf Suite 518\nKautzerhaven, NH 91984-0668', 'moen.nora@example.net', 'http://www.eichmann.com/odit-perspiciatis-optio-quasi-neque-libero-aut-aliquid', '569-272-7733 x536', 0, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(5, 'Sipes, Roberts and Rutherford', 'A iste molestias fugit consequuntur necessitatibus magni. Doloremque quisquam saepe iste est commodi. Mollitia itaque occaecati a. Sit enim accusamus veritatis.', '\"[\\\"image.jpg\\\"]\"', '1876 Jaiden Parkways Apt. 197\nEthanshire, MI 22969', 'dschaden@example.net', 'http://brown.info/ea-natus-aut-ut-omnis-ut-saepe', '(970) 284-5852 x024', 1, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(7, 'Nolan-Kovacek', 'Rerum accusamus minus id non laborum. Et aperiam et dolores animi. Dolor quaerat facilis sed doloremque non vero et voluptates. Inventore sunt et est ut dolores.', '\"[\\\"image.jpg\\\"]\"', '316 Zulauf Burg Suite 760\nRosafurt, DC 36155-2044', 'elmira39@example.com', 'http://www.ebert.com/reiciendis-eos-deleniti-et-ipsa', '+1.417.828.4826', 1, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(8, 'Tremblay Inc', 'Aliquid aut consectetur velit ex deleniti. Deleniti est sunt qui. Qui quos rem dolor voluptatem eos sit. Sit est sit est voluptate et architecto accusantium soluta.', '\"[\\\"image.jpg\\\"]\"', '461 Dimitri Terrace\nNorth Keonmouth, OH 67215', 'teagan75@example.org', 'https://www.mcdermott.com/reprehenderit-debitis-explicabo-consequatur', '317.276.1764 x52162', 1, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(9, 'Ryan-Fritsch', 'Fugiat et quia dicta dolorum reprehenderit totam. Et consequuntur dolores possimus quod. Sequi adipisci esse commodi nostrum. Explicabo qui earum voluptas.', '\"[\\\"image.jpg\\\"]\"', '4593 August Row\nNew Travis, ME 00617-5516', 'carmelo.schmeler@example.com', 'http://ritchie.com/quae-unde-quae-consequatur-perferendis', '1-502-229-0990', 0, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(10, 'Stoltenberg and Sons', 'Non ea illum sunt. Itaque minima optio rerum omnis amet. Laudantium fuga ut consequatur voluptatem facere. Velit nesciunt consequuntur veritatis consequatur modi sed et.', '\"[\\\"image.jpg\\\"]\"', '9723 Dorothea Camp Apt. 904\nSarahland, TN 53174-7481', 'tillman.flatley@example.org', 'http://www.oconner.com/beatae-quia-voluptas-eveniet-eligendi-iusto-harum-nihil', '964-348-7161 x1441', 0, '2020-01-27 07:40:02', '2020-01-27 07:40:02'),
+(11, 'Schaden Inc', 'Est consequatur impedit error aut repellat vitae omnis. Sint blanditiis reiciendis ipsa vel aut illo id. Similique unde et sint quas nihil illo dolorum.', '\"[\\\"image.jpg\\\"]\"', '49159 Morar Path Suite 150\nWest Janniemouth, TN 67950', 'river.jacobs@example.net', 'http://www.gusikowski.com/', '(763) 944-3447', 1, '2020-01-27 07:40:02', '2020-01-27 07:40:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `business_category`
+--
+
+CREATE TABLE `business_category` (
+  `category_id` int(10) UNSIGNED DEFAULT NULL,
+  `business_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `business_category`
+--
+
+INSERT INTO `business_category` (`category_id`, `business_id`, `created_at`, `updated_at`) VALUES
+(3, 1, NULL, NULL),
+(5, 1, NULL, NULL),
+(3, 6, NULL, NULL),
+(5, 6, NULL, NULL),
+(1, 2, NULL, NULL),
+(2, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,9 +125,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Web Design', '2020-01-25 10:33:28', '2020-01-25 10:33:28'),
-(2, 'Artificial Inteligent', '2020-01-25 10:33:53', '2020-01-25 10:33:53'),
-(3, 'App Development', '2020-01-25 17:22:42', '2020-01-25 17:22:42');
+(1, 'App Development', '2020-01-27 06:32:42', '2020-01-27 06:32:42'),
+(2, 'Web Design', '2020-01-27 06:32:48', '2020-01-27 06:32:48'),
+(3, 'Mobile Development', '2020-01-27 06:32:56', '2020-01-27 06:32:56'),
+(4, 'Desktop App Dev', '2020-01-27 06:33:01', '2020-01-27 06:33:01'),
+(5, 'Artificial Inteligent', '2020-01-27 06:33:07', '2020-01-27 06:33:07');
 
 -- --------------------------------------------------------
 
@@ -147,7 +168,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_01_23_191512_create_businesses_table', 1),
 (5, '2020_01_23_192721_create_categories_table', 1),
-(6, '2020_01_24_164414_create_admins_table', 1);
+(6, '2020_01_24_164414_create_admins_table', 1),
+(7, '2020_01_27_063247_business_category', 1);
 
 -- --------------------------------------------------------
 
@@ -234,19 +256,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `businesses`
 --
 ALTER TABLE `businesses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -258,7 +280,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
