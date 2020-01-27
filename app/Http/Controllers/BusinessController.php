@@ -164,8 +164,9 @@ if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
 
 	public function view($id)
 	{
+
 		
- $data['business'] = Business::where('id',$id)->get()->toArray()[0];
+ $data['business'] = Business::where('id',$id)->with("categories")->get()->toArray()[0];
  //$categories_id =  $
     	return view('public.business_view')->with($data);
 
