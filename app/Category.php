@@ -8,5 +8,9 @@ class Category extends Model
 {
     //
    protected $guarded =[];
- 
+  
+    public function businesses()
+    {
+        return $this->belongsToMany(App\Business::class);
+    }
 }
