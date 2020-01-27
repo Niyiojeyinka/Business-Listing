@@ -76,7 +76,7 @@ class BusinessController extends Controller
   public function showEdit($id)
   {
 
-    $data['business'] = Business::find($id)->with("categories")->get()->toArray()[0];   
+    $data['business'] = Business::where('id',$id)->with("categories")->get()->toArray()[0];   
     $data['id']=$id;
   	$data['categories'] = Category::all();
 //dd( $data['business'][0]);
@@ -87,7 +87,7 @@ class BusinessController extends Controller
    public function update(Request $request,$id)
    {
      
-$business = Business::find($id)->get()->toArray()[0];
+$business = Business::where('id',$id)->get()->toArray()[0];
     
 
      $errorMessages =[
@@ -104,7 +104,7 @@ $business = Business::find($id)->get()->toArray()[0];
       "website"=>"required|url",
        "email"=>"required|email",
       "description"=>"required",
-      "phone"=>"required|numeric|min:10",
+      "phone"=>"required|min:10",
       "feature_image"=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       "address"=>"required",
       "categories"=>"required"
