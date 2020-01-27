@@ -125,8 +125,7 @@ if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
 	}
 //made a provision for multiple image by saving images as json
          
-   $business = new Business();
-   $business->id = $id;
+   $business = Business::find($id);
    $business->name = $data['name'];
    $business->website = $data['website'];
    $business->description= $data['description'];
