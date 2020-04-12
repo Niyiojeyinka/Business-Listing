@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Business;
+use App\Http\Controllers\ImageController;
+
 class BusinessController extends Controller
 {
   public $errorHandling;
@@ -49,10 +51,9 @@ class BusinessController extends Controller
      $data= $request->validate($this->errorHandling['rules'],$this->errorHandling['errorMessages']);
 
 
-
-  $imageName = time().'.'.request()->feature_image->getClientOriginalExtension();
-   request()->feature_image->move(public_path('images'), $imageName);
-
+     $image = new ImageController();
+     $imageName = $image->upload(request(),"feature_image");
+   
 //made a provision for multiple image by saving images as json
 
    $business = new Business();
@@ -95,14 +96,9 @@ class BusinessController extends Controller
 $business = Business::where('id',$id)->get()->toArray()[0];
      $data= $request->validate($this->errorHandling['rules'],$this->errorHandling['errorMessages']);
 
-$imageName=NULL;
-
-if (request()->hasfile('feature_image')) {
-	
-  $imageName = time().'.'.request()->feature_image->getClientOriginalExtension();
-   request()->feature_image->move(public_path('images'), $imageName);
-}
-$imagesArray = json_decode($business['feature_image']);
+  $image = new ImageController();
+  $imageName = $image->upload(request(),"feature_image");
+  $imagesArray = json_decode($business['feature_image']);
 
 if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
 	array_push($imagesArray, $imageName);
