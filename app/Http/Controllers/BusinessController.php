@@ -7,7 +7,31 @@ use App\Category;
 use App\Business;
 class BusinessController extends Controller
 {
-	
+  public $errorHandling;
+
+  public function __construct(){
+   $this->errorHandling=[
+      "errorMessages"=>[
+         "name.required"=>"Business Name is required",
+         "name.min"=>"Minimum Number of Character is 4",
+         "website.required"=>"Business website is required",
+       "website.url"=>"Please Provide a valid URL",
+       "email.required"=>"Business Email is required",
+       "email.email"=>"Please Provide a valid Email",
+       "feature_image.max"=>"Image must be less or equal to 2MB in size "
+      ],
+      "rules"=>[
+         "name"=>"required|min:4",
+         "website"=>"required|url",
+          "email"=>"required|email",
+         "description"=>"required",
+         "phone"=>"required|numeric|min:10",
+         "feature_image"=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         "address"=>"required",
+         "categories"=>"required"
+         ]
+   ];
+  }	
 
   public function showCreate()
   {
@@ -22,26 +46,7 @@ class BusinessController extends Controller
    {
      
 
-     $errorMessages =[
-     	"name.required"=>"Business Name is required",
-     	"name.min"=>"Minimum Number of Character is 4",
-     	"website.required"=>"Business website is required",
-		"website.url"=>"Please Provide a valid URL",
-		"email.required"=>"Business Email is required",
-		"email.email"=>"Please Provide a valid Email",
-		"feature_image.max"=>"Image must be less or equal to 2MB in size "
-     ];
-     $rules=[
-      "name"=>"required|min:4",
-      "website"=>"required|url",
-       "email"=>"required|email",
-      "description"=>"required",
-      "phone"=>"required|numeric|min:10",
-      "feature_image"=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      "address"=>"required",
-      "categories"=>"required"
-      ];
-     $data= $request->validate($rules,$errorMessages);
+     $data= $request->validate($this->errorHandling['rules'],$this->errorHandling['errorMessages']);
 
 
 
@@ -88,28 +93,7 @@ class BusinessController extends Controller
    {
      
 $business = Business::where('id',$id)->get()->toArray()[0];
-    
-
-     $errorMessages =[
-     	"name.required"=>"Business Name is required",
-     	"name.min"=>"Minimum Number of Character is 4",
-     	"website.required"=>"Business website is required",
-		"website.url"=>"Please Provide a valid URL",
-		"email.required"=>"Business Email is required",
-		"email.email"=>"Please Provide a valid Email",
-		"feature_image.max"=>"Image must be less or equal to 2MB in size "
-     ];
-     $rules=[
-      "name"=>"required|min:4",
-      "website"=>"required|url",
-       "email"=>"required|email",
-      "description"=>"required",
-      "phone"=>"required|min:10",
-      "feature_image"=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      "address"=>"required",
-      "categories"=>"required"
-      ];
-     $data= $request->validate($rules,$errorMessages);
+     $data= $request->validate($this->errorHandling['rules'],$this->errorHandling['errorMessages']);
 
 $imageName=NULL;
 

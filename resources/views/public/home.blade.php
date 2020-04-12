@@ -10,7 +10,7 @@
 
 </form>
 </div>
-<span class="w3-large">Categories</span>
+<span class="w3-large w3-text-teal">Categories</span>
 <br>
 <div class="w3-padding w3-card w3-center w3-margin">
 
