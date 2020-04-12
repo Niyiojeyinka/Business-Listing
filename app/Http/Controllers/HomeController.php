@@ -34,7 +34,7 @@ class HomeController extends Controller
       $data['categories']=Category::all();
 
 //dd($data['businesses']);
-         return view('public.front')->with($data);
+         return view('public.home')->with($data);
     }
     
 
