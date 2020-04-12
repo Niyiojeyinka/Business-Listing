@@ -1,7 +1,7 @@
 @extends('public.common.template')
 @section('contents')
-<div class="w3-padding w3-center w3-border">
-
+<div class="w3-center w3-border">
+<div id="searchDiv" class="search w3-hide-medium w3-hide-large">
 <form>
 	@csrf
 <input type="search" name="keywords" class="w3-padding-large"/>
@@ -9,10 +9,10 @@
 <input type="submit" name="submit" class="w3-btn w3-teal" value="search...">
 
 </form>
-
+</div>
 <span class="w3-large">Categories</span>
 <br>
-<div class="w3-padding-large w3-card w3-center w3-margin">
+<div class="w3-padding w3-card w3-center w3-margin">
 
 
 @foreach($categories as $category)

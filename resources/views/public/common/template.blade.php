@@ -19,7 +19,7 @@
 <body class="">
 <header  style="max-width: 2000px;height: 500px;background-image: url({{asset('images/header_bg.png') }});background-size: 100%;background-repeat: no-repeat;" class="w3-padding-large w3-border-bottom w3-border-white w3-card w3-hide-small">
 <div class="w3-small">
-  <img style="max-width: 220px;max-height: 200px" src="{{asset('images/logo.png')}}" class="w3-left w3-margin-left"/>
+  <a href="{{url('')}}"><img style="max-width: 220px;max-height: 200px" src="{{asset('images/logo.png')}}" class="w3-left w3-margin-left"/></a>
 
 
 
@@ -43,7 +43,7 @@
 
 <header  style="max-width: 800px;height: 300px;background-image: url({{asset('images/header_bg_small.png') }});background-size: 100%;background-repeat: no-repeat;"
  class="w3-padding-large w3-border-bottom w3-border-white w3-hide-medium w3-hide-large">
-<img style="max-width: 120px;max-height: 60px" src="{{asset('images/logo.png') }}" class="w3-left"/>
+ <a href="{{url('')}}"><img style="max-width: 120px;max-height: 60px" src="{{asset('images/logo.png') }}" class="w3-left"/></a>
 
 
 <span class="fa fa-bars w3-text-white w3-large w3-right w3-margin-right"></span>
