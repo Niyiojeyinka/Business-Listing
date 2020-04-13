@@ -27,8 +27,8 @@ class BusinessController extends Controller
          "website"=>"required|url",
           "email"=>"required|email",
          "description"=>"required",
-         "phone"=>"required|numeric|min:10",
-         "feature_image"=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         "phone"=>"required|min:10",
+         "feature_image"=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          "address"=>"required",
          "categories"=>"required"
          ]
