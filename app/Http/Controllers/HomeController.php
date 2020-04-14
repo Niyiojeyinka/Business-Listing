@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function homepage()
     {
       $data['title']='A Classic Business Directory Service';
-      $data['businesses']=Business::where('status',1)->get()->toArray();
+      $data['businesses']=Business::where('status',1)->paginate(4);
       $data['categories']=Category::all();
 
 //dd($data['businesses']);

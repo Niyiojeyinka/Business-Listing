@@ -49,8 +49,28 @@
 </a>
 
 	@endforeach
-</div>
 
+</div>
+<style>
+ul[class="pagination"] {
+
+	list-style-type:none;
+}
+ul[class="pagination"] > li{
+ display:inline;
+ padding:8px;
+ margin:8px;
+ background-color:teal;
+color:white;
+}
+li[class="page-item active"]{
+	background-color:white !important;
+	color:teal !important;
+}
+</style>
+<div id="pagination" class="w3-margin">
+	{{$businesses->links()}}
+	</div>
 </div>
 
 
