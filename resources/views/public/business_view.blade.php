@@ -26,8 +26,9 @@
 	<i class="fa fa-star w3-medium w3-text-yellow w3-margin-right"></i>
 	<i class="fa fa-star w3-medium w3-text-yellow w3-margin-right"></i>
 	<i class="fa fa-star w3-medium w3-text-yellow w3-margin-right"></i>
-	<i class="fa fa-star-half-empty w3-medium w3-text-yellow w3-margin-right"></i>
-	<span class="w3-text-yellow">(56)</span>
+	<i class="fa fa-star-half-empty w3-medium w3-text-yellow"></i>
+	<span class="w3-text-yellow">4.5</span><br>
+	<span class="w3-small">(56) Reviews</span>
 
 		
 
