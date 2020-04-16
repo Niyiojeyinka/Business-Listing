@@ -7,11 +7,12 @@
 	<img src="{{asset('images/'.json_decode($business['feature_image'])[0])}}" class="w3-image" style="max-width: 70%;" />
 	<span class="w3-large">Categories</span><br>
 		@foreach($business['categories'] as $category )
-		<span class="w3-teal w3-margin w3-tag w3-round-xlarge w3-text-white">{{$category['name']}}</span>
+		<span class="w3-teal w3-margin w3-tag w3-round-xlarge w3-text-white w3-padding">{{$category['name']}}</span>
 		@endforeach
 	<div class="w3-row">
 <div class=" w3-col l9 m9 s12 w3-padding w3-center" >
-	<span>Contact Box</span><br>
+	<span class="w3-large">Contact Box</span><br>
+	<br>
 <span class="w3-left w3-margin">	<span  class="fa fa-phone w3-large w3-text-teal w3-margin-right"></span>{{$business['phone']}}</span>
 <span class="w3-center w3-margin">	<span  class="fa fa-phone fa-envelope w3-large w3-text-teal w3-margin-right"></span>{{$business['email']}}</span>
 <span class='w3-right w3-margin'>	<span  class="fa fa-envelope w3-large w3-text-teal w3-margin-right"></span>{{$business['website']}}</span>
