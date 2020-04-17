@@ -23,18 +23,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+    
     public function homepage()
     {
       $data['title']='A Classic Business Directory Service';
-      $data['businesses']=Business::where('status',1)->get()->toArray();
+      $data['businesses']=Business::where('status',1)->paginate(4);
       $data['categories']=Category::all();
 
 //dd($data['businesses']);
-         return view('public.front')->with($data);
+         return view('public.home')->with($data);
     }
     
 

@@ -13,12 +13,7 @@ class BusinessCategory extends Migration
      */
     public function up()
     {
-       /* Schema::create('business_category', function(Blueprint $table)
-  {
-      $table->integer('category_id')->unsigned();
-      $table->integer('business_id')->unsigned();
-      $table->timestamps();
-  });*/
+       
 
   Schema::create('business_category', function(Blueprint $table)
   {
