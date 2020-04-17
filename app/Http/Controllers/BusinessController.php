@@ -129,7 +129,7 @@ if (!empty($imageName && (!in_array($imageName, $imagesArray)))) {
    public function manage()
    {
    	
-    $data['businesses'] =Business::all();
+    $data['businesses'] =Business::paginate(5);
 
    	return view('admin.manage_business')->with($data);
    }
