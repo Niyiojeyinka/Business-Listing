@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Review;
+
 class Business extends Model
 {
 
@@ -19,6 +21,10 @@ class Business extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
    
 }
