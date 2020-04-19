@@ -9,6 +9,6 @@ class Review extends Model
     
 public function business(Type $var = null)
 {
-   return $this->belongTo(App\business::class);
+   return $this->belongsTo(App\business::class);
 }
 }
