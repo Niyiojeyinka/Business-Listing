@@ -33,7 +33,11 @@
 
 
 @endforeach
+<!--pagination links-->
 
+<div id="pagination" class="w3-margin">
+	{{$businesses->links()}}
+	</div>
 
     </div></div>
 
