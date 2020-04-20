@@ -18,7 +18,14 @@ class ReviewTest extends TestCase
      * @return void
      */
     use RefreshDatabase;
+    /** @test */
+    public function add_review_page_can_be_access(){
+        
+        $response= $this->get('review/add/1-testslug');
+        $response->assertStatus(200);
 
+    }
+       
     /** @test */
     public function review_can_be_added_logged_in_user(){
         $this->actingAs(factory(User::class)->create());
@@ -26,7 +33,7 @@ class ReviewTest extends TestCase
         $response= $this->post('add_review/'.$business['id'],['comment'=> 'Great Company','user_id'=>1,'rating'=>4]);
         $response->assertStatus(200);
         $this->assertCount(1,Review::all());
-
+  
     }
         
     
