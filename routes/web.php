@@ -63,7 +63,7 @@ Route::get('admin/category/delete/{id}','CategoryController@delete' );
 
 
 /**reviews Routing**/
-Route::get('review/add/{id-slug}','ReviewController@create');
-Route::post('review/add/{id-slug}','ReviewController@store');
+Route::get('review/add/{id}-{slug}','ReviewController@create');
+Route::post('review/add/{id}-{slug}','ReviewController@store');
 
 

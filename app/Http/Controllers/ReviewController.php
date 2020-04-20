@@ -10,7 +10,7 @@ class ReviewController extends Controller
     public function create($id)
     {
         //
-        return view("review.create_review");
+        return view("reviews.create_review");
 
 
     }
