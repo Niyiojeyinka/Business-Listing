@@ -20,7 +20,7 @@ class BusinessCategory extends Migration
       $table->integer('category_id')->unsigned()->nullable()->foreign('category_id')->references('id')
             ->on('categories')->onDelete('cascade');
       $table->integer('business_id')->unsigned()->nullable()->references('id')
-            ->on('todolists')->onDelete('cascade');
+            ->on('businesses')->onDelete('cascade');
 
       $table->timestamps();
   });
